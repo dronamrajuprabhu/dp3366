@@ -1,0 +1,52 @@
+---
+title: "project 1- Reproducable Research"
+output: html_document
+---
+
+```{r}
+**loading datasets**
+data <- "./Desktop/activity.csv"
+**reading datasets**
+da <- read.csv(data,header = TRUE, sep = ",")
+dp <- aggregate(da$steps~da$date,da,sum, na.rm=TRUE)
+histogram1 <- hist(dp$`da$steps`, breaks=50, main = "Total number of steps", xlab = "steps", col = "blue")
+```
+
+
+```{r}
+da_mean <- mean(da$steps, na.rm = TRUE)
+da_mean
+ds <- aggregate(da$steps~da$interval,da, mean, na.rm=TRUE)
+plotting <-plot(ds$`da$interval`,ds$`da$steps`,type = "l", xlab = "steps", ylab = "interval", main = "Time series plot of the average number of steps taken")
+
+```
+
+
+```{r}
+maxsteps <- max(ds$`da$steps`)
+maxsteps
+md <- sum(is.na(da$steps))
+md
+sdata <- aggregate(da$steps ~ da$interval, da, mean, na.rm=TRUE)
+mdata <- sum(is.na(da$steps))
+da$steps[is.na(da$steps)] <- median(da$steps, na.rm=TRUE)
+betdat<- aggregate(steps ~ date, da, sum, na.rm=TRUE)
+histogram2 <-hist(betdat$steps, breaks=30, main="Total Steps per Day with NA adjusted", xlab="Steps",col = "red")
+
+```
+
+
+```{r}
+bmean <- mean(betdat$steps)
+bmedian <- median(betdat$steps)
+da$date <- as.Date(da$date)
+da$dayname <- weekdays(da$date)
+da$weekend <- as.factor(ifelse(da$dayname == "Saturday" |da$dayname == "Sunday", "weekend", "weekday"))
+library(lattice)
+plotdata <- aggregate(steps ~ interval + weekend, da, mean)
+plotting2 <- xyplot(steps ~ interval | factor(weekend), data=plotdata, aspect=1/3, type="l")
+
+```
+
+## MADE BY: 
+### Dronamraju Prabhu
