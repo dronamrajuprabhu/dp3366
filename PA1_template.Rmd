@@ -11,7 +11,7 @@ histogram1 <- hist(dp$`da$steps`, breaks=50, main = "Total number of steps", xla
 ```
 
 ```{r dp$`da$steps`, echo=TRUE}
-plot(dp$`da$steps`)
+hist(dp$`da$steps`)
 ```
 
 ```{r}
