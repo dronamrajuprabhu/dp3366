@@ -8,10 +8,9 @@ data <- "./Desktop/activity.csv"
 da <- read.csv(data,header = TRUE, sep = ",")
 dp <- aggregate(da$steps~da$date,da,sum, na.rm=TRUE)
 histogram1 <- hist(dp$`da$steps`, breaks=50, main = "Total number of steps", xlab = "steps", col = "blue")
-histogram1
 ```
 
-```{rhistogram1, echo=TRUE}
+```{r histogram1, echo=TRUE}
 plot(histogram1)
 ```
 
