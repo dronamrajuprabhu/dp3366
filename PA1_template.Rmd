@@ -10,8 +10,8 @@ dp <- aggregate(da$steps~da$date,da,sum, na.rm=TRUE)
 histogram1 <- hist(dp$`da$steps`, breaks=50, main = "Total number of steps", xlab = "steps", col = "blue")
 ```
 
-```{r histogram1, echo=TRUE}
-plot(histogram1)
+```{r dp$`da$steps`, echo=TRUE}
+plot(dp$`da$steps`)
 ```
 
 ```{r}
