@@ -1,7 +1,3 @@
----
-title: "project 1- Reproducable Research"
-output: html_document
----
 
 ```{r}
 data <- "./Desktop/activity.csv"
@@ -10,9 +6,6 @@ dp <- aggregate(da$steps~da$date,da,sum, na.rm=TRUE)
 histogram1 <- hist(dp$`da$steps`, breaks=50, main = "Total number of steps", xlab = "steps", col = "blue")
 ```
 
-```{r dp$`da$steps`, echo=TRUE}
-hist(dp$`da$steps`)
-```
 
 ```{r}
 da_mean <- mean(da$steps, na.rm = TRUE)
